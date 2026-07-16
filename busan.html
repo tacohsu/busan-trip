@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>釜山五天四夜之旅｜2026.11.11 – 11.15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#14335C;        /* 廣安大橋夜海 */
+  --sea:#2C7DA0;         /* 釜山港藍 */
+  --sea-soft:#61A5C2;
+  --foam:#D6E9F0;
+  --sand:#FBF5EE;        /* 暖沙 */
+  --coral:#E4572E;       /* 楓紅 */
+  --ink:#26374A;
+  --muted:#63788A;
+  --card:#FFFFFF;
+  --radius:18px;
+  --shadow:0 6px 24px rgba(20,51,92,.10);
+  --zh:'Noto Sans TC',"PingFang TC","Microsoft JhengHei",sans-serif;
+  --en:'Quicksand',var(--zh);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--zh);color:var(--ink);background:var(--sand);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--sea);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:3px solid var(--coral);outline-offset:2px;border-radius:6px}
+
+/* ===== Hero ===== */
+.hero{position:relative;color:#fff;background:linear-gradient(165deg,#14335C 0%,#1F5480 40%,#2C7DA0 70%,#C46A3F 130%);padding:56px 20px 110px;text-align:center;overflow:hidden}
+.hero .eyebrow{font-family:var(--en);letter-spacing:.35em;font-weight:600;font-size:.8rem;opacity:.85;text-transform:uppercase}
+.hero h1{font-weight:900;font-size:clamp(1.9rem,6vw,3.2rem);margin:.35em 0 .2em;letter-spacing:.08em}
+.hero .sub{font-size:clamp(.95rem,2.8vw,1.1rem);opacity:.92}
+.hero .dates{display:inline-flex;align-items:center;gap:.6em;margin-top:18px;background:rgba(255,255,255,.16);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.35);padding:.45em 1.2em;border-radius:999px;font-family:var(--en);font-weight:600;font-size:.95rem;letter-spacing:.06em}
+.hero .leaf{position:absolute;font-size:1.4rem;opacity:.5;animation:fall 11s linear infinite}
+.hero .leaf:nth-child(2){left:18%;animation-delay:-4s;font-size:1.1rem}
+.hero .leaf:nth-child(3){left:78%;animation-delay:-8s}
+.hero .leaf:nth-child(4){left:60%;animation-delay:-2s;font-size:1rem}
+@keyframes fall{from{transform:translateY(-60px) rotate(0)}to{transform:translateY(460px) rotate(300deg)}}
+@media (prefers-reduced-motion:reduce){.hero .leaf{display:none}}
+.countdown{display:flex;justify-content:center;gap:14px;margin-top:26px;flex-wrap:wrap}
+.cd-box{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:10px 0;width:72px;backdrop-filter:blur(4px)}
+.cd-box b{display:block;font-family:var(--en);font-size:1.6rem;font-weight:700;line-height:1.2}
+.cd-box span{font-size:.75rem;opacity:.85}
+.waves{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:90px;display:block}
+.waves path{animation:drift 9s ease-in-out infinite alternate}
+.waves path:nth-child(2){animation-duration:13s;animation-delay:-3s}
+.waves path:nth-child(3){animation:none}
+@keyframes drift{from{transform:translateX(0)}to{transform:translateX(-36px)}}
+@media (prefers-reduced-motion:reduce){.waves path{animation:none}}
+
+/* ===== Layout ===== */
+.wrap{max-width:860px;margin:0 auto;padding:0 18px 70px}
+section{margin-top:44px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+.sec-head .en{font-family:var(--en);font-weight:700;color:var(--sea);letter-spacing:.2em;font-size:.78rem;text-transform:uppercase}
+.sec-head h2{font-size:1.45rem;font-weight:900;letter-spacing:.05em}
+
+/* ===== Flight cards ===== */
+.flights{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.flight{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px;position:relative;overflow:hidden}
+.flight::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--sea),var(--sea-soft))}
+.flight .tag{display:inline-block;font-size:.75rem;font-weight:700;color:#fff;background:var(--sea);border-radius:999px;padding:.15em .9em;margin-bottom:10px}
+.flight .no{font-family:var(--en);font-weight:700;font-size:1rem;color:var(--deep);float:right}
+.route{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:6px 0 4px}
+.route .city{text-align:center}
+.route .city b{display:block;font-size:1.5rem;font-family:var(--en);font-weight:700;color:var(--deep);letter-spacing:.03em}
+.route .city span{font-size:.8rem;color:var(--muted)}
+.route .path{flex:1;position:relative;height:20px;margin:0 6px}
+.route .path::before{content:"";position:absolute;top:50%;left:0;right:0;border-top:2px dashed var(--sea-soft)}
+.route .path::after{content:"✈";position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);color:var(--coral);font-size:1.05rem;background:var(--card);padding:0 6px}
+.flight .times{display:flex;justify-content:space-between;font-family:var(--en);font-weight:600;color:var(--ink)}
+.flight .times small{display:block;font-family:var(--zh);font-weight:400;color:var(--muted);font-size:.75rem}
+.flight-note{margin-top:14px;background:var(--foam);border-radius:12px;padding:12px 16px;font-size:.88rem;color:var(--deep)}
+
+/* ===== Hotel / base card ===== */
+.hotels{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.hotel{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;overflow:hidden}
+.hotel .nights{font-size:.78rem;font-weight:700;color:var(--coral);letter-spacing:.05em}
+.hotel h3{font-size:1.12rem;font-weight:900;margin:.25em 0 .05em}
+.hotel .en-name{font-family:var(--en);font-size:.82rem;color:var(--muted);font-weight:500}
+.hotel ul{list-style:none;margin-top:12px}
+.hotel li{padding-left:1.4em;position:relative;font-size:.9rem;margin-top:6px}
+.hotel li::before{content:"🍁";position:absolute;left:0;font-size:.8rem;top:.15em}
+
+/* ===== Day tabs ===== */
+.tabs-sticky{position:sticky;top:0;z-index:50;background:linear-gradient(var(--sand) 82%,rgba(251,245,238,0));padding:12px 0 16px;margin-top:44px}
+.tabs-wrap{position:relative}
+.tabs{display:flex;gap:10px;overflow-x:auto;padding:4px 26px 4px 2px;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.tabs::-webkit-scrollbar{display:none}
+.tabs-wrap::after{content:"";position:absolute;top:0;right:0;bottom:0;width:34px;background:linear-gradient(90deg,rgba(251,245,238,0),var(--sand));pointer-events:none;border-radius:0 12px 12px 0}
+@media (min-width:700px){
+  .tabs{flex-wrap:wrap;overflow:visible;padding-right:2px}
+  .tabs-wrap::after{display:none}
+}
+.tab{flex:0 0 auto;scroll-snap-align:start;border:2px solid var(--sea-soft);background:var(--card);color:var(--deep);border-radius:999px;padding:.5em 1.05em;font-family:var(--zh);font-weight:700;font-size:.88rem;cursor:pointer;transition:.2s;white-space:nowrap}
+.tab .en{font-family:var(--en);font-weight:700;margin-right:.35em}
+.tab:hover{border-color:var(--sea)}
+.tab.active{background:var(--deep);border-color:var(--deep);color:#fff;box-shadow:0 4px 14px rgba(20,51,92,.28)}
+
+/* ===== Day panel ===== */
+.day{display:none;animation:fade .35s ease}
+.day.show{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.day-head{background:linear-gradient(135deg,var(--deep),var(--sea));color:#fff;border-radius:var(--radius) var(--radius) 0 0;padding:20px 24px}
+.day-head .d-en{font-family:var(--en);font-weight:700;letter-spacing:.25em;font-size:.75rem;opacity:.85}
+.day-head h3{font-size:1.3rem;font-weight:900;margin-top:.15em;letter-spacing:.04em}
+.day-head .d-date{font-size:.85rem;opacity:.9;margin-top:.2em}
+.day-body{background:var(--card);border-radius:0 0 var(--radius) var(--radius);box-shadow:var(--shadow);padding:8px 22px 24px}
+
+/* timeline */
+.tl{list-style:none;margin-top:14px}
+.tl li{display:flex;gap:14px;position:relative;padding-bottom:16px}
+.tl li::before{content:"";position:absolute;left:66px;top:26px;bottom:-2px;border-left:2px solid var(--foam)}
+.tl li:last-child::before{display:none}
+.tl .time{flex:0 0 56px;font-family:var(--en);font-weight:700;font-size:.82rem;color:var(--sea);text-align:right;padding-top:3px;line-height:1.35}
+.tl .dot{flex:0 0 12px;width:12px;height:12px;border-radius:50%;background:var(--sea-soft);border:3px solid var(--foam);margin-top:6px;z-index:1}
+.tl .act{flex:1;font-size:.93rem}
+.tl .act .hl{font-weight:700;color:var(--deep)}
+.tl .act .sub-list{font-size:.82rem;color:var(--muted);margin-top:2px}
+.tl .act .map{font-size:.8rem;margin-left:.4em;white-space:nowrap}
+.tl li.star .dot{background:var(--coral);border-color:#F8D3C4}
+.tl li.star .act .hl{color:var(--coral)}
+
+/* note & tip cards */
+.note{margin-top:14px;background:#FDEEE7;border-left:5px solid var(--coral);border-radius:10px;padding:14px 18px;font-size:.88rem}
+.note b{color:var(--coral)}
+.note ul{margin:6px 0 0 1.2em}
+.tip{margin-top:14px;background:var(--foam);border-left:5px solid var(--sea);border-radius:10px;padding:14px 18px;font-size:.88rem}
+.tip b{color:var(--deep)}
+.tip ul{margin:6px 0 0 1.2em}
+
+/* ===== 必吃清單 ===== */
+.foods{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.food{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+.food .emo{font-size:1.7rem;line-height:1.2}
+.food b{font-size:.98rem;color:var(--deep);display:block}
+.food .stars{color:#F2A93B;font-size:.85rem;letter-spacing:.08em}
+.food p{font-size:.8rem;color:var(--muted);margin-top:2px}
+
+/* ===== 咖啡廳 chips ===== */
+.cafes{display:flex;flex-wrap:wrap;gap:10px}
+.cafe{background:var(--card);border:1.5px solid var(--sea-soft);border-radius:999px;padding:.5em 1.1em;font-size:.88rem;font-weight:700;color:var(--deep);box-shadow:var(--shadow)}
+.cafe small{font-weight:400;color:var(--muted);margin-left:.4em}
+
+/* ===== 必逛 checklist ===== */
+.pack-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+.pack-progress{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.pack-bar{flex:1;height:10px;background:var(--foam);border-radius:999px;overflow:hidden}
+.pack-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sea),var(--coral));border-radius:999px;transition:width .3s}
+.pack-progress b{font-family:var(--en);font-weight:700;color:var(--deep);font-size:.9rem;white-space:nowrap}
+.pack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px 18px}
+.pack-item{display:flex;align-items:flex-start;gap:9px;padding:5px 0;cursor:pointer;font-size:.9rem;line-height:1.5;user-select:none}
+.pack-item input{accent-color:var(--coral);width:17px;height:17px;margin-top:2px;flex:0 0 auto;cursor:pointer}
+.pack-item.done span{color:var(--muted);text-decoration:line-through}
+.pack-hint{margin-top:14px;font-size:.78rem;color:var(--muted)}
+
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 16px 40px;background:linear-gradient(180deg,var(--sand),#F3EDE4)}
+footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(--sea)}
+@media (max-width:520px){
+  .hero{padding:44px 16px 96px}
+  .cd-box{width:64px}
+  .day-body{padding:6px 14px 20px}
+  .tl li::before{left:60px}
+  .tl .time{flex-basis:50px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="leaf" style="left:8%">🍁</span><span class="leaf">🍂</span><span class="leaf">🍁</span><span class="leaf">🍂</span>
+  <div class="eyebrow">Busan Autumn Trip</div>
+  <h1>釜山五天四夜之旅</h1>
+  <p class="sub">海雲台 × 甘川文化村 × 梵魚寺賞楓 × 西面美食</p>
+  <div class="dates">2026.11.11 WED — 11.15 SUN</div>
+  <div class="countdown" id="countdown" aria-label="出發倒數">
+    <div class="cd-box"><b id="cd-d">--</b><span>天</span></div>
+    <div class="cd-box"><b id="cd-h">--</b><span>小時</span></div>
+    <div class="cd-box"><b id="cd-m">--</b><span>分鐘</span></div>
+    <div class="cd-box"><b id="cd-s">--</b><span>秒</span></div>
+  </div>
+  <svg class="waves" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="rgba(251,245,238,.35)" d="M0,40 C240,90 480,0 720,35 C960,70 1200,10 1440,45 L1500,45 L1500,90 L0,90 Z"/>
+    <path fill="rgba(251,245,238,.55)" d="M0,55 C260,20 520,85 780,55 C1040,25 1250,75 1440,50 L1500,50 L1500,90 L0,90 Z"/>
+    <path fill="#FBF5EE" d="M0,70 C300,45 620,88 900,68 C1150,52 1320,78 1440,66 L1440,90 L0,90 Z"/>
+  </svg>
+</header>
+
+<main class="wrap">
+<!-- ===== 航班 ===== -->
+<section id="flights">
+  <div class="sec-head"><span class="en">Flights</span><h2>航班資訊</h2></div>
+  <div class="flights">
+    <div class="flight">
+      <span class="no">ZE984／ZE988</span>
+      <span class="tag">去程｜11/11（三・수요일）</span>
+      <div class="route">
+        <div class="city"><b>TPE</b><span>桃園</span></div>
+        <div class="path"></div>
+        <div class="city"><b>PUS</b><span>釜山金海</span></div>
+      </div>
+      <div class="times">
+        <div>待補<small>起飛</small></div>
+        <div style="text-align:right">凌晨<small>抵達金海機場</small></div>
+      </div>
+      <div class="flight-note">🌙 紅眼班機，抵達後直接展開 Day 1，前一晚記得補眠</div>
+    </div>
+    <div class="flight">
+      <span class="no">ZE983／ZE987</span>
+      <span class="tag" style="background:var(--coral)">回程｜11/15（日・일요일）</span>
+      <div class="route">
+        <div class="city"><b>PUS</b><span>釜山金海</span></div>
+        <div class="path"></div>
+        <div class="city"><b>TPE</b><span>桃園</span></div>
+      </div>
+      <div class="times">
+        <div>待補<small>起飛</small></div>
+        <div style="text-align:right">待補<small>抵達桃園</small></div>
+      </div>
+      <div class="flight-note">🧳 確切航班時間確定後跟我說，我再補上並回推當天行程時間</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 住宿 ===== -->
+<section id="hotels">
+  <div class="sec-head"><span class="en">Stay</span><h2>住宿安排</h2></div>
+  <div class="hotels">
+    <div class="hotel">
+      <span class="nights">11/11 – 11/15｜共 4 晚</span>
+      <h3>西面住宿（待確認）</h3>
+      <div class="en-name">Seomyeon, Busan</div>
+      <ul>
+        <li>以西面為據點，地鐵 1、2 號線交會，往海雲台、南浦洞都方便</li>
+        <li>Day 1 凌晨抵達先寄放行李，確認飯店可否提早寄放</li>
+        <li>飯店確定後跟我說，我再補上名稱、照片與地圖</li>
+      </ul>
+    </div>
+    <div class="hotel">
+      <span class="nights">行前準備</span>
+      <h3>交通與支付</h3>
+      <div class="en-name">WOWPASS × T-money</div>
+      <ul>
+        <li>抵達金海機場先辦 WOWPASS（外幣儲值卡）及 T-money 交通卡</li>
+        <li>韓國 Google 地圖導航功能受限，建議先下載 <b>Naver Map</b> 或 <b>Kakao Map</b></li>
+        <li>11 月中釜山氣溫約 7–16°C，早晚溫差大，保暖外套必備</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 每日行程 ===== -->
+<div class="tabs-sticky">
+  <div class="tabs-wrap">
+  <nav class="tabs" id="tabs" aria-label="每日行程切換">
+    <button class="tab active" data-day="d1"><span class="en">Day 1</span>11/11 西面・田浦</button>
+    <button class="tab" data-day="d2"><span class="en">Day 2</span>11/12 海雲台</button>
+    <button class="tab" data-day="d3"><span class="en">Day 3</span>11/13 甘川・南浦</button>
+    <button class="tab" data-day="d4"><span class="en">Day 4</span>11/14 賞楓・購物</button>
+    <button class="tab" data-day="d5"><span class="en">Day 5</span>11/15 白淺灘・返台</button>
+  </nav>
+  </div>
+</div>
+
+<section class="day show" id="d1">
+  <div class="day-head">
+    <div class="d-en">DAY 1 · WEDNESDAY</div>
+    <h3>抵達釜山｜西面・田浦咖啡街</h3>
+    <div class="d-date">11月11日（三・수요일）</div>
+  </div>
+  <div class="day-body">
+    <ul class="tl">
+      <li><span class="time">凌晨</span><span class="dot"></span><span class="act">搭乘 <b class="hl">ZE984／ZE988</b> 抵達金海機場</span></li>
+      <li><span class="time">06:30<br>08:00</span><span class="dot"></span><span class="act">入境、領行李，辦理 <b>WOWPASS</b> 與 <b>T-money</b>，搭輕軌轉地鐵前往西面</span></li>
+      <li><span class="time">08:30</span><span class="dot"></span><span class="act">飯店寄放行李</span></li>
+      <li class="star"><span class="time">早餐</span><span class="dot"></span><span class="act"><span class="hl">🍜 豬肉湯飯（第一餐必吃）</span><div class="sub-list">推薦：松亭三代豬肉湯飯 <a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%BE%E4%BA%AD%E4%B8%89%E4%BB%A3%E8%B1%AC%E8%82%89%E6%B9%AF%E9%A3%AF+%E8%A5%BF%E9%9D%A2">📍</a>／味贊王豬肉湯飯 <a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%91%B3%E8%B4%8A%E7%8E%8B%E8%B1%AC%E8%82%89%E6%B9%AF%E9%A3%AF">📍</a></div></span></li>
+      <li><span class="time">上午</span><span class="dot"></span><span class="act">西面地下街、樂天百貨、西面商圈<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E8%A5%BF%E9%9D%A2%E5%9C%B0%E4%B8%8B%E8%A1%97">📍地圖</a></span></li>
+      <li><span class="time">中午</span><span class="dot"></span><span class="act">韓式烤肉午餐 🥓</span></li>
+      <li class="star"><span class="time">下午</span><span class="dot"></span><span class="act"><span class="hl">☕ 田浦咖啡街</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%94%B0%E6%B5%A6%E5%92%96%E5%95%A1%E8%A1%97">📍地圖</a><div class="sub-list">推薦：Momo's Coffee、AVIVERE Company、Urban Plant</div></span></li>
+      <li><span class="time">晚上</span><span class="dot"></span><span class="act">西面商圈逛街</span></li>
+      <li><span class="time">宵夜</span><span class="dot"></span><span class="act">韓式炸雞＋啤酒 🍗🍺</span></li>
+    </ul>
+    <div class="note"><b>當日重點</b>：紅眼班機抵達，行程刻意排得彈性，視體力調整節奏；下午咖啡街正好可以坐下來休息回血。</div>
+  </div>
+</section>
+
+<section class="day" id="d2">
+  <div class="day-head">
+    <div class="d-en">DAY 2 · THURSDAY</div>
+    <h3>海雲台一日遊</h3>
+    <div class="d-date">11月12日（四・목요일）</div>
+  </div>
+  <div class="day-body">
+    <ul class="tl">
+      <li><span class="time">早餐</span><span class="dot"></span><span class="act">飯店早餐</span></li>
+      <li><span class="time">09:00</span><span class="dot"></span><span class="act">海雲台海水浴場<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%B5%B7%E9%9B%B2%E5%8F%B0%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4">📍地圖</a></span></li>
+      <li><span class="time">上午</span><span class="dot"></span><span class="act">海雲台市場</span></li>
+      <li><span class="time">午餐</span><span class="dot"></span><span class="act">海鮮鍋 🦐</span></li>
+      <li class="star"><span class="time">下午</span><span class="dot"></span><span class="act"><span class="hl">Blue Line Park・Sky Capsule 膠囊列車</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Haeundae+Blueline+Park+Sky+Capsule">📍地圖</a></span></li>
+      <li><span class="time">下午</span><span class="dot"></span><span class="act">青沙浦・Daritdol Skywalk 天空步道<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Cheongsapo+Daritdol+Skywalk">📍地圖</a></span></li>
+      <li class="star"><span class="time">晚餐</span><span class="dot"></span><span class="act"><span class="hl">🐚 青沙浦烤貝</span></span></li>
+      <li><span class="time">晚上</span><span class="dot"></span><span class="act">廣安里海水浴場<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%BB%A3%E5%AE%89%E9%87%8C%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4">📍地圖</a></span></li>
+      <li class="star"><span class="time">晚上</span><span class="dot"></span><span class="act"><span class="hl">🌉 廣安大橋夜景</span></span></li>
+      <li><span class="time">夜間</span><span class="dot"></span><span class="act">返回西面</span></li>
+    </ul>
+    <div class="tip"><b>Sky Capsule 提醒</b>：膠囊列車超熱門，<b>強烈建議提前線上預約</b>指定時段；海雲台→青沙浦方向坐右側看海視野最好。</div>
+  </div>
+</section>
+
+<section class="day" id="d3">
+  <div class="day-head">
+    <div class="d-en">DAY 3 · FRIDAY</div>
+    <h3>甘川文化村・南浦洞</h3>
+    <div class="d-date">11月13日（五・금요일）</div>
+  </div>
+  <div class="day-body">
+    <ul class="tl">
+      <li><span class="time">早餐</span><span class="dot"></span><span class="act">ISAAC Toast 🥪</span></li>
+      <li class="star"><span class="time">上午</span><span class="dot"></span><span class="act"><span class="hl">🎨 甘川文化村（拍照約 2 小時）</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%94%98%E5%B7%9D%E6%96%87%E5%8C%96%E6%9D%91">📍地圖</a></span></li>
+      <li><span class="time">午餐</span><span class="dot"></span><span class="act">札嘎其市場海鮮 🐟<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%9C%AD%E5%98%8E%E5%85%B6%E5%B8%82%E5%A0%B4">📍地圖</a></span></li>
+      <li class="star"><span class="time">下午</span><span class="dot"></span><span class="act"><span class="hl">🚠 松島海上纜車・松島天空步道</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Songdo+Marine+Cable+Car">📍地圖</a></span></li>
+      <li><span class="time">傍晚</span><span class="dot"></span><span class="act">BIFF 廣場（吃 <b>糖餅</b> 🥞）<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=BIFF%E5%BB%A3%E5%A0%B4">📍地圖</a></span></li>
+      <li><span class="time">傍晚</span><span class="dot"></span><span class="act">國際市場</span></li>
+      <li class="star"><span class="time">晚上</span><span class="dot"></span><span class="act"><span class="hl">🥫 富平罐頭夜市</span>（魚板 🍢）<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%AF%8C%E5%B9%B3%E7%BD%90%E9%A0%AD%E5%A4%9C%E5%B8%82">📍地圖</a></span></li>
+      <li><span class="time">夜間</span><span class="dot"></span><span class="act">返回西面</span></li>
+    </ul>
+    <div class="tip"><b>甘川文化村小提醒</b>：村內是山坡巷弄，樓梯多、路面起伏，穿好走的鞋；小王子雕像等熱門拍照點通常要排隊，早點抵達人比較少。</div>
+  </div>
+</section>
+
+<section class="day" id="d4">
+  <div class="day-head">
+    <div class="d-en">DAY 4 · SATURDAY</div>
+    <h3>梵魚寺賞楓・Centum City 購物</h3>
+    <div class="d-date">11月14日（六・토요일）</div>
+  </div>
+  <div class="day-body">
+    <ul class="tl">
+      <li><span class="time">早餐</span><span class="dot"></span><span class="act">飯店早餐</span></li>
+      <li class="star"><span class="time">上午</span><span class="dot"></span><span class="act"><span class="hl">🍁 梵魚寺賞楓</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%A2%B5%E9%AD%9A%E5%AF%BA">📍地圖</a></span></li>
+      <li><span class="time">中午</span><span class="dot"></span><span class="act">金井山纜車（時間允許再排）<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Geumgang+Park+Ropeway">📍地圖</a></span></li>
+      <li><span class="time">下午</span><span class="dot"></span><span class="act">前往 Centum City<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Centum+City+Busan">📍地圖</a></span></li>
+      <li class="star"><span class="time">下午</span><span class="dot"></span><span class="act"><span class="hl">♨️ Spa Land 泡湯休息</span></span></li>
+      <li><span class="time">傍晚</span><span class="dot"></span><span class="act">新世界百貨、Olive Young、DAISO、E-mart 🛍️</span></li>
+      <li class="star"><span class="time">晚餐</span><span class="dot"></span><span class="act"><span class="hl">🥩 韓牛燒肉</span></span></li>
+      <li><span class="time">晚上</span><span class="dot"></span><span class="act">回飯店整理行李</span></li>
+    </ul>
+    <div class="tip"><b>當日提醒</b>：11 月中正值釜山楓紅季，梵魚寺是市區最經典的賞楓點，週六人潮多，建議一早就出發；Spa Land 有入場時數限制，泡湯加休息抓 2–3 小時剛好。</div>
+  </div>
+</section>
+
+<section class="day" id="d5">
+  <div class="day-head">
+    <div class="d-en">DAY 5 · SUNDAY</div>
+    <h3>白淺灘文化村・返台</h3>
+    <div class="d-date">11月15日（日・일요일）</div>
+  </div>
+  <div class="day-body">
+    <ul class="tl">
+      <li><span class="time">上午</span><span class="dot"></span><span class="act">退房、寄放行李</span></li>
+      <li class="star"><span class="time">上午</span><span class="dot"></span><span class="act"><span class="hl">🌊 白淺灘文化村（影島）</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Huinnyeoul+Culture+Village">📍地圖</a></span></li>
+      <li><span class="time">上午</span><span class="dot"></span><span class="act">海景咖啡 ☕</span></li>
+      <li><span class="time">午餐</span><span class="dot"></span><span class="act">海鮮麵 🍜</span></li>
+      <li><span class="time">下午</span><span class="dot"></span><span class="act">回西面拿行李，前往金海機場</span></li>
+      <li class="star"><span class="time">傍晚</span><span class="dot"></span><span class="act"><span class="hl">ZE983／ZE987 返回桃園 ✈️</span></span></li>
+    </ul>
+    <div class="note"><b>回程提醒</b>：回程航班時間確定後，我再幫你回推當天白淺灘與午餐的停留時間，抓好前往機場的緩衝。</div>
+  </div>
+</section>
+
+<!-- ===== 必吃清單 ===== -->
+<section id="foods">
+  <div class="sec-head"><span class="en">Must Eat</span><h2>這次一定要吃</h2></div>
+  <div class="foods">
+    <div class="food"><span class="emo">🍜</span><div><b>豬肉湯飯</b><span class="stars">★★★★★</span><p>第一餐必吃｜西面</p></div></div>
+    <div class="food"><span class="emo">🐚</span><div><b>烤貝</b><span class="stars">★★★★★</span><p>Day 2｜青沙浦</p></div></div>
+    <div class="food"><span class="emo">🥩</span><div><b>韓牛燒肉</b><span class="stars">★★★★★</span><p>Day 4 晚餐</p></div></div>
+    <div class="food"><span class="emo">🥞</span><div><b>糖餅</b><span class="stars">★★★★★</span><p>Day 3｜BIFF 廣場</p></div></div>
+    <div class="food"><span class="emo">🍢</span><div><b>魚板</b><span class="stars">★★★★★</span><p>Day 3｜南浦洞</p></div></div>
+    <div class="food"><span class="emo">🦐</span><div><b>海鮮鍋</b><span class="stars">★★★★★</span><p>Day 2｜海雲台</p></div></div>
+    <div class="food"><span class="emo">🍗</span><div><b>韓式炸雞</b><span class="stars">★★★★☆</span><p>Day 1 宵夜｜西面</p></div></div>
+  </div>
+</section>
+
+<!-- ===== 必去咖啡廳 ===== -->
+<section id="cafes">
+  <div class="sec-head"><span class="en">Cafés</span><h2>必去咖啡廳</h2></div>
+  <div class="cafes">
+    <span class="cafe">Momo's Coffee<small>田浦</small></span>
+    <span class="cafe">Urban Plant<small>田浦</small></span>
+    <span class="cafe">AVIVERE Company<small>田浦</small></span>
+    <span class="cafe">青沙浦海景咖啡<small>Day 2</small></span>
+    <span class="cafe">Huinnyeoul 咖啡<small>白淺灘</small></span>
+    <span class="cafe">海雲台海景咖啡<small>Day 2</small></span>
+  </div>
+</section>
+
+<!-- ===== 必逛清單 ===== -->
+<section id="shopping">
+  <div class="sec-head"><span class="en">Shopping</span><h2>必逛清單</h2></div>
+  <div class="pack-card">
+    <div class="pack-progress"><div class="pack-bar"><i id="pack-fill"></i></div><b id="pack-count">0 / 0</b></div>
+    <div class="pack-grid" id="pack-grid"></div>
+    <div class="pack-hint">✅ 逛完就打勾，狀態存在自己的手機上，每位旅伴各勾各的。</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="en">BUSAN · 2026.11.11 – 11.15</div>
+  <p>釜山五天四夜之旅・가을 부산 잘 다녀오세요 🍁</p>
+</footer>
+
+<script>
+// 倒數計時（出發日：2026-11-11）
+(function(){
+  var target = new Date('2026-11-11T00:00:00+08:00').getTime();
+  var d=document.getElementById('cd-d'),h=document.getElementById('cd-h'),m=document.getElementById('cd-m'),s=document.getElementById('cd-s');
+  function tick(){
+    var diff = target - Date.now();
+    if(diff <= 0){
+      document.getElementById('countdown').innerHTML = '<div class="cd-box" style="width:auto;padding:10px 22px"><b style="font-size:1.1rem;font-family:var(--zh)">旅程進行中 🍁</b></div>';
+      return;
+    }
+    d.textContent = Math.floor(diff/86400000);
+    h.textContent = Math.floor(diff/3600000)%24;
+    m.textContent = Math.floor(diff/60000)%60;
+    s.textContent = Math.floor(diff/1000)%60;
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+
+// 必逛清單
+(function(){
+  var items = ['Olive Young','DAISO','ARTBOX','新世界百貨','樂天百貨','西面地下街','國際市場','E-mart'];
+  var grid = document.getElementById('pack-grid');
+  var KEY = 'busan-shopping-2026';
+  var mem = {};
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return mem; } }
+  function save(state){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){ mem = state; } }
+  var state = load();
+  items.forEach(function(item, i){
+    var label = document.createElement('label');
+    label.className = 'pack-item' + (state[i] ? ' done' : '');
+    var cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.checked = !!state[i];
+    var sp = document.createElement('span');
+    sp.textContent = item;
+    cb.addEventListener('change', function(){
+      state[i] = cb.checked;
+      label.classList.toggle('done', cb.checked);
+      save(state);
+      update();
+    });
+    label.appendChild(cb); label.appendChild(sp);
+    grid.appendChild(label);
+  });
+  function update(){
+    var done = Object.keys(state).filter(function(k){return state[k]}).length;
+    document.getElementById('pack-fill').style.width = (done/items.length*100) + '%';
+    document.getElementById('pack-count').textContent = done + ' / ' + items.length;
+  }
+  update();
+})();
+
+// Day 分頁切換
+(function(){
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(x){x.classList.remove('active')});
+      t.classList.add('active');
+      document.querySelectorAll('.day').forEach(function(p){p.classList.remove('show')});
+      document.getElementById(t.dataset.day).classList.add('show');
+      var sticky = document.querySelector('.tabs-sticky');
+      var top = sticky.getBoundingClientRect().top + window.scrollY;
+      if(window.scrollY > top) window.scrollTo({top: top - 4, behavior: 'smooth'});
+    });
+  });
+})();
+</script>
+</body>
+</html>
