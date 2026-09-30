@@ -117,6 +117,13 @@ section{margin-top:44px}
 /* ===== Day panel ===== */
 .day{display:none;animation:fade .35s ease}
 .day.show{display:block}
+.day{touch-action:pan-y pinch-zoom;scroll-margin-top:150px}
+.day-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px}
+.day-controls button{font:700 .82rem var(--zh);padding:8px 12px;min-height:44px;border:1px solid var(--sea-soft);border-radius:12px;background:var(--card);color:var(--deep);cursor:pointer}
+.day-controls button:disabled{opacity:.4;cursor:default}
+#day-position{font-size:.82rem;font-weight:700;color:var(--deep)}
+.swipe-hint{font-size:.73rem;color:var(--muted);text-align:center;margin-top:5px}
+@media print{.day-controls,.swipe-hint{display:none}}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .day-head{background:linear-gradient(135deg,var(--deep),var(--sea));color:#fff;border-radius:var(--radius) var(--radius) 0 0;padding:20px 24px}
 .day-head .d-en{font-family:var(--en);font-weight:700;letter-spacing:.25em;font-size:.75rem;opacity:.85}
@@ -331,67 +338,49 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
 <!-- ===== 住宿 ===== -->
 <section id="hotels">
   <div class="sec-head"><span class="en">Stay</span><h2>住宿安排</h2></div>
+  <p class="tz-note">11/7–11/9 白天 4 人同行・11/10–11/11 共 3 人｜海雲台 2 晚＋南浦 2 晚</p>
   <div class="hotels">
-    <div class="hotel">
-      <span class="nights">11/7 – 11/11｜共 4 晚</span>
-      <h3>西面住宿（待確認）</h3>
-      <div class="en-name">Seomyeon, Busan</div>
-      <ul>
-        <li>以西面為據點，地鐵 1、2 號線交會，往海雲台、南浦洞都方便</li>
-        <li>Day 1 約 08:30 抵達飯店，先確認可否提早寄放行李（能提早入住更好）</li>
-        <li>飯店確定後跟我說，我再補上名稱、照片與地圖</li>
-      </ul>
-    </div>
-    <div class="hotel">
-      <span class="nights">行前準備</span>
-      <h3>交通與支付</h3>
-      <div class="en-name">WOWPASS × T-money</div>
-      <ul>
-        <li>抵達金海機場先辦 WOWPASS（外幣儲值卡）及 T-money 交通卡</li>
-        <li>韓國 Google 地圖導航功能受限，建議先下載 <b>Naver Map</b> 或 <b>Kakao Map</b></li>
-        <li>11 月上旬釜山氣溫約 8–17°C，早晚溫差大，保暖外套必備</li>
-      </ul>
-    </div>
+    <div class="hotel"><span class="nights">11/7 入住 – 11/9 退房｜2 晚</span><h3>Sienna Ambassador Residence</h3><div class="en-name">Haeundae · 海雲台</div><ul><li>入住 15:00–23:00；退房 06:00–11:00</li><li>6, Gunam-ro 21beon-gil, Haeundae-gu</li><li>訂房截圖未顯示房型與人數，請確認可入住 4 人</li><li><a class="map" href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%20%ED%95%B4%EC%9A%B4%EB%8C%80%EA%B5%AC%20%EA%B5%AC%EB%82%A8%EB%A1%9C21%EB%B2%88%EA%B8%B8%206" target="_blank" rel="noopener">📍 Naver Map</a></li></ul></div>
+    <div class="hotel"><span class="nights">11/9 入住 – 11/11 退房｜2 晚</span><h3>帕拉米昂 Paramion Hotel Nampo</h3><div class="en-name">Nampo · 南浦</div><ul><li>已訂 3 位成人・城景豪華三人房</li><li>1 張大床＋1 張單人床・不含餐・禁菸</li><li>入住時間與提前寄物服務待向住宿確認</li><li><a class="map" href="https://map.naver.com/p/search/Paramion%20Hotel%20Nampo%20%EB%B6%80%EC%82%B0" target="_blank" rel="noopener">📍 Naver Map</a></li></ul></div>
   </div>
+  <p class="tz-note">11/9 白天仍為 4 人；第 4 位的離隊時間與交通待確認。當晚南浦住宿為 3 人。</p>
 </section>
 
 <!-- ===== 每日行程 ===== -->
 <div class="tabs-sticky">
   <div class="tabs-wrap">
   <nav class="tabs" id="tabs" role="tablist" aria-label="每日行程切換">
-    <button type="button" class="tab active" role="tab" aria-selected="true" aria-controls="d1" data-day="d1"><span class="en">Day 1</span>11/7 西面・煙火節</button>
-    <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="d2" data-day="d2"><span class="en">Day 2</span>11/8 海雲台</button>
+    <button type="button" class="tab active" role="tab" aria-selected="true" aria-controls="d1" data-day="d1"><span class="en">Day 1</span>11/7 汗蒸・煙火節</button>
+    <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="d2" data-day="d2"><span class="en">Day 2</span>11/8 滑車・天空膠囊</button>
     <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="d3" data-day="d3"><span class="en">Day 3</span>11/9 甘川・南浦</button>
     <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="d4" data-day="d4"><span class="en">Day 4</span>11/10 賞楓・購物</button>
     <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="d5" data-day="d5"><span class="en">Day 5</span>11/11 白淺灘・返台</button>
   </nav>
   </div>
+  <div class="day-controls"><button id="day-prev" type="button" aria-label="前一天">← 前一天</button><span id="day-position" role="status" aria-live="polite" aria-atomic="true">第 1 / 5 天</span><button id="day-next" type="button" aria-label="後一天">後一天 →</button></div>
+  <p class="swipe-hint">在下方行程左右滑動切換天數 · 所有時間均為韓國時間</p>
 </div>
 
-<section class="day show" id="d1" role="tabpanel">
-  <div class="day-head">
-    <div class="d-en">DAY 1 · SATURDAY</div>
-    <h3>抵達釜山｜西面・田浦・釜山煙火節 🎆</h3>
-    <div class="d-date">11月7日（六・토요일）｜第 21 屆釜山煙火節當日</div>
-  </div>
-  <div class="day-body">
-    <ul class="tl">
-      <li><span class="time">11/6<br>深夜</span><span class="dot"></span><span class="act">抵達桃園機場報到（台灣時間，建議 00:40 前完成）</span></li>
-      <li class="star"><span class="time">06:10</span><span class="dot"></span><span class="act"><span class="hl">✈️ 抵達金海機場</span><div class="sub-list">LJ578 02:40 桃園起飛，機上能睡約 2 小時，把握時間補眠</div></span></li>
-      <li><span class="time">06:30<br>07:40</span><span class="dot"></span><span class="act">入境、領行李，辦理 <b>WOWPASS</b> 與 <b>T-money</b></span></li>
-      <li><span class="time">07:40</span><span class="dot"></span><span class="act">搭輕軌轉地鐵 2 號線前往西面（約 40–50 分鐘）</span></li>
-      <li><span class="time">08:30</span><span class="dot"></span><span class="act">飯店寄放行李</span></li>
-      <li class="star"><span class="time">早餐</span><span class="dot"></span><span class="act"><span class="hl">🍜 豬肉湯飯（第一餐必吃）</span><div class="sub-list">推薦：松亭三代豬肉湯飯 <a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%9D%BE%E4%BA%AD%E4%B8%89%E4%BB%A3%E8%B1%AC%E8%82%89%E6%B9%AF%E9%A3%AF+%E8%A5%BF%E9%9D%A2">📍</a>／味贊王豬肉湯飯 <a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%91%B3%E8%B4%8A%E7%8E%8B%E8%B1%AC%E8%82%89%E6%B9%AF%E9%A3%AF">📍</a></div></span></li>
-      <li><span class="time">上午</span><span class="dot"></span><span class="act">西面地下街、樂天百貨（輕鬆逛，保留體力）<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E8%A5%BF%E9%9D%A2%E5%9C%B0%E4%B8%8B%E8%A1%97">📍地圖</a></span></li>
-      <li><span class="time">中午</span><span class="dot"></span><span class="act">韓式烤肉午餐 🥓</span></li>
-      <li><span class="time">午後</span><span class="dot"></span><span class="act">☕ 田浦咖啡街小歇回血<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%94%B0%E6%B5%A6%E5%92%96%E5%95%A1%E8%A1%97">📍地圖</a><div class="sub-list">推薦：Momo's Coffee、AVIVERE Company、Urban Plant</div></span></li>
-      <li class="star"><span class="time">14:30<br>15:30</span><span class="dot"></span><span class="act"><span class="hl">依觀賞方式提前前往廣安里</span><div class="sub-list">當日周邊道路管制、地鐵人潮多，務必預留時間（免費區建議更早）</div></span></li>
-      <li><span class="time">傍晚</span><span class="dot"></span><span class="act">廣安里海灘周邊覓食、等待煙火（14:00 起有街區活動）</span></li>
-      <li class="star"><span class="time">19:00<br>20:00</span><span class="dot"></span><span class="act"><span class="hl">🎆 第 21 屆釜山煙火節主秀（廣安大橋）</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%EA%B4%91%EC%95%88%EB%A6%AC%ED%95%B4%EC%88%98%EC%9A%95%EC%9E%A5">📍地圖</a><div class="sub-list">※ 主秀時間依往年慣例，2026 詳細節目表以官網公布為準</div></span></li>
-      <li><span class="time">20:00後</span><span class="dot"></span><span class="act">散場人潮眾多，搭地鐵返回西面（多預留時間）</span></li>
-      <li><span class="time">宵夜</span><span class="dot"></span><span class="act">韓式炸雞＋啤酒 🍗🍺（視體力）</span></li>
+<div id="day-panels" aria-label="每日行程，可左右滑動切換">
+<section class="day show" id="d1" role="tabpanel" aria-labelledby="tab-d1" tabindex="0">
+  <div class="day-head"><div class="d-en">DAY 1 · SATURDAY</div><h3>抵達釜山・Spa Land・百貨・煙火節 🎆</h3><div class="d-date">11月7日（六）｜4 人｜住海雲台・付費煙火席已購買</div></div>
+  <div class="day-body"><ul class="tl">
+      <li><span class="time">06:10<br>07:40</span><span class="dot"></span><div class="act"><span class="hl">✈️ 抵達金海機場</span><div class="sub-list">LJ578 02:40 桃園起飛；入境、領行李、確認交通卡與網路。預留約 90 分鐘。</div></div></li>
+      <li><span class="time">07:40<br>08:10</span><span class="dot"></span><div class="act"><span class="hl">機場早餐</span><div class="sub-list">簡單吃早餐、上洗手間，先取出汗蒸幕需要的換洗衣物。</div></div></li>
+      <li><span class="time">08:10<br>09:40</span><span class="dot"></span><div class="act"><span class="hl">機場 → Centum City</span><div class="sub-list">金海輕軌機場站 → 沙上站，轉地鐵 2 號線往萇山 → Centum City。含步行與轉乘暫抓 90 分鐘。</div></div></li>
+      <li class="star"><span class="time">09:40<br>12:00</span><span class="dot"></span><div class="act"><span class="hl">♨️ Spa Land 汗蒸幕</span><a class="map" href="https://map.naver.com/p/search/%EC%8A%A4%ED%8C%8C%EB%9E%9C%EB%93%9C%20%EC%84%BC%ED%85%80%EC%8B%9C%ED%8B%B0" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">先處理大件行李寄放，再洗澡、泡湯與休息。寄物依現場尺寸、空位及收費辦理。</div></div></li>
+      <li class="star"><span class="time">12:00<br>13:45</span><span class="dot"></span><div class="act"><span class="hl">🛍️ 新世界 Centum City 午餐＋百貨</span><a class="map" href="https://map.naver.com/p/search/%EC%8B%A0%EC%84%B8%EA%B3%84%EB%B0%B1%ED%99%94%EC%A0%90%20%EC%84%BC%ED%85%80%EC%8B%9C%ED%8B%B0" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">National Geographic 服飾列為重點；櫃位以當日樓層指南為準，第一天保留晚間體力。</div></div></li>
+      <li><span class="time">13:45<br>14:30</span><span class="dot"></span><div class="act"><span class="hl">領行李、前往海雲台</span><div class="sub-list">Centum City 站搭地鐵 2 號線往萇山 → 海雲台站，再步行到住宿。</div></div></li>
+      <li><span class="time">14:30<br>15:00</span><span class="dot"></span><div class="act"><span class="hl">住宿附近稍坐</span><div class="sub-list">若不能提早入住，附近咖啡廳等候；先確認入住方式。</div></div></li>
+      <li><span class="time">15:00<br>15:40</span><span class="dot"></span><div class="act"><span class="hl">🏨 Sienna Ambassador Residence 入住</span><a class="map" href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%20%ED%95%B4%EC%9A%B4%EB%8C%80%EA%B5%AC%20%EA%B5%AC%EB%82%A8%EB%A1%9C21%EB%B2%88%EA%B8%B8%206" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">放行李、休息。帶護照、煙火節票券、行動電源與保暖外套。</div></div></li>
+      <li><span class="time">15:40<br>16:40</span><span class="dot"></span><div class="act"><span class="hl">海雲台 → 廣安里</span><a class="map" href="https://map.naver.com/p/search/%EA%B4%91%EC%95%88%EC%97%AD" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">地鐵 2 號線往梁山 → 廣安站，依票券入口與當天管制步行；含人潮緩衝約 1 小時。</div></div></li>
+      <li class="star"><span class="time">16:40<br>17:30</span><span class="dot"></span><div class="act"><span class="hl">🎟️ 煙火節付費席取票、入場</span><a class="map" href="https://map.naver.com/p/search/%EA%B4%91%EC%95%88%EB%A6%AC%ED%95%B4%EC%88%98%EC%9A%95%EC%9E%A5" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">已購買付費席。攜帶訂單要求的證件，依實際兌票地點與期限辦理。</div></div></li>
+      <li><span class="time">17:30<br>18:30</span><span class="dot"></span><div class="act"><span class="hl">座位休息、簡單用餐</span><div class="sub-list">先確認廁所、飲食攜入及再入場規定。需場外用餐時提前安排。</div></div></li>
+      <li><span class="time">18:30</span><span class="dot"></span><div class="act"><span class="hl">就座準備</span><div class="sub-list">穿好外套，整理拍照設備，避免開演前才離席。</div></div></li>
+      <li class="star"><span class="time">19:00<br>20:00</span><span class="dot"></span><div class="act"><span class="hl">🎆 第 21 屆釜山煙火節</span><div class="sub-list">以票券及官方最終節目表為準。</div></div></li>
+      <li><span class="time">20:00<br>21:30</span><span class="dot"></span><div class="act"><span class="hl">散場、返回海雲台</span><div class="sub-list">依現場引導搭地鐵 2 號線往萇山 → 海雲台。此時段包含散場與候車緩衝。</div></div></li>
+      <li><span class="time">21:30後</span><span class="dot"></span><div class="act"><span class="hl">宵夜或回住宿休息</span><div class="sub-list">依體力決定，不預約固定時間的宵夜餐廳。</div></div></li>
     </ul>
-
     <div class="spots-title">當日亮點<span class="en">Highlights</span></div>
     <div class="spots">
       <div class="spot">
@@ -400,154 +389,130 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
       </div>
     </div>
 
-    <div class="note"><b>煙火觀賞方式（擇一）</b>：
-      <ul>
-        <li><b>方案 A｜購票座席（推薦）</b>：官網開賣後預訂付費座位，不用耗體力佔位——紅眼抵達日的最佳解，白天行程可以照常走。</li>
-        <li><b>方案 B｜免費區佔位</b>：廣安里沙灘免費，但往年下午 3 點後海灘可能限制進入，需 14:00 前抵達佔位，等候時間長，請自行評估體力。</li>
-      </ul>
-      售票與節目表請盯 <a href="https://busanfireworks.com/" target="_blank" rel="noopener">官方網站</a>公告；當天廣安里一帶大範圍交通管制，一律搭地鐵（廣安站、金蓮山站）。
-    </div>
-    <div class="tip"><b>當日重點</b>：凌晨 02:40 的紅眼班機、機上只睡得到兩小時，晚上還有煙火，是體力硬仗，白天行程刻意放輕，田浦咖啡街就是你們的中場休息站；若飯店可提早入住，午後先小睡一小時更好。</div>
-  </div>
+<div class="note"><b>已購票｜煙火節付費席</b>：不用安排免費區佔位；席別、入口及兌票期限依訂單。<a href="https://busanfireworks.com/" target="_blank" rel="noopener">官方資訊</a></div><div class="tip"><b>延誤時優先順序</b>：休息 → 入住 → 煙火節準時取票。若入境延誤，先縮短百貨，不壓縮取票時間。</div></div>
 </section>
 
-<section class="day" id="d2" role="tabpanel">
-  <div class="day-head">
-    <div class="d-en">DAY 2 · SUNDAY</div>
-    <h3>海雲台一日遊</h3>
-    <div class="d-date">11月8日（日・일요일）</div>
-  </div>
-  <div class="day-body">
-    <ul class="tl">
-      <li><span class="time">早餐</span><span class="dot"></span><span class="act">飯店早餐</span></li>
-      <li><span class="time">09:00</span><span class="dot"></span><span class="act">海雲台海水浴場<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%B5%B7%E9%9B%B2%E5%8F%B0%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4">📍地圖</a></span></li>
-      <li><span class="time">上午</span><span class="dot"></span><span class="act">海雲台市場</span></li>
-      <li><span class="time">午餐</span><span class="dot"></span><span class="act">海鮮鍋 🦐</span></li>
-      <li class="star"><span class="time">下午</span><span class="dot"></span><span class="act"><span class="hl">Blue Line Park・Sky Capsule 膠囊列車</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Haeundae+Blueline+Park+Sky+Capsule">📍地圖</a></span></li>
-      <li><span class="time">下午</span><span class="dot"></span><span class="act">青沙浦・Daritdol Skywalk 天空步道<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Cheongsapo+Daritdol+Skywalk">📍地圖</a></span></li>
-      <li class="star"><span class="time">晚餐</span><span class="dot"></span><span class="act"><span class="hl">🐚 青沙浦烤貝</span></span></li>
-      <li><span class="time">晚上</span><span class="dot"></span><span class="act">返回西面，商圈自由逛街（廣安大橋煙火 Day 1 已欣賞，今晚提早收工休息）</span></li>
+<section class="day" id="d2" role="tabpanel" aria-labelledby="tab-d2" tabindex="0">
+  <div class="day-head"><div class="d-en">DAY 2 · SUNDAY</div><h3>斜坡滑車・青沙浦・天空膠囊・夕陽</h3><div class="d-date">11月8日（日）｜4 人｜住海雲台第 2 晚</div></div>
+  <div class="day-body"><ul class="tl">
+      <li><span class="time">08:00<br>08:45</span><span class="dot"></span><div class="act"><span class="hl">住宿附近早餐</span><div class="sub-list">穿包鞋與方便活動的衣物。</div></div></li>
+      <li><span class="time">08:45<br>09:00</span><span class="dot"></span><div class="act"><span class="hl">出門準備</span><div class="sub-list">確認票券、先上洗手間；只帶輕便背包。</div></div></li>
+      <li><span class="time">09:00<br>09:45</span><span class="dot"></span><div class="act"><span class="hl">海雲台 → Skyline Luge</span><div class="sub-list">4 人共乘可載 4 位乘客的計程車，車程暫抓 30–45 分鐘。</div></div></li>
+      <li><span class="time">09:45<br>10:00</span><span class="dot"></span><div class="act"><span class="hl">抵達、準備入場</span><div class="sub-list">備妥電子票，依現場流程領安全帽與排隊；開園時間以當日公告為準。</div></div></li>
+      <li class="star"><span class="time">10:00<br>12:00</span><span class="dot"></span><div class="act"><span class="hl">🏎️ Skyline Luge 斜坡滑車</span><a class="map" href="https://map.naver.com/p/search/%EC%8A%A4%EC%B9%B4%EC%9D%B4%EB%9D%BC%EC%9D%B8%EB%A3%A8%EC%A7%80%20%EB%B6%80%EC%82%B0" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">建議 4 次券 × 4 人。含纜椅、首次教學與排隊預留約 2 小時；路線依當日開放情況選擇。</div></div></li>
+      <li><span class="time">12:00<br>12:40</span><span class="dot"></span><div class="act"><span class="hl">機張 → 青沙浦</span><div class="sub-list">計程車直達青沙浦，車程暫抓 25–40 分鐘。</div></div></li>
+      <li><span class="time">12:40<br>13:40</span><span class="dot"></span><div class="act"><span class="hl">🐚 青沙浦午餐</span><a class="map" href="https://map.naver.com/p/search/%EC%B2%AD%EC%82%AC%ED%8F%AC" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">港邊用餐；烤貝等料理預留完整 1 小時。</div></div></li>
+      <li><span class="time">13:40<br>14:30</span><span class="dot"></span><div class="act"><span class="hl">青沙浦港邊散步</span><div class="sub-list">燈塔、港景與平交道拍照；不進入軌道。滑車延誤時可縮短這段。</div></div></li>
+      <li><span class="time">14:30<br>15:30</span><span class="dot"></span><div class="act"><span class="hl">☕ 青沙浦海景咖啡</span><div class="sub-list">喝咖啡、休息、上洗手間。影島 Age 咖啡廳安排在 Day 5。</div></div></li>
+      <li><span class="time">15:30<br>15:50</span><span class="dot"></span><div class="act"><span class="hl">前往青沙浦膠囊車站</span><a class="map" href="https://map.naver.com/p/search/%ED%95%B4%EC%9A%B4%EB%8C%80%EB%B8%94%EB%A3%A8%EB%9D%BC%EC%9D%B8%ED%8C%8C%ED%81%AC%20%EC%B2%AD%EC%82%AC%ED%8F%AC%EC%A0%95%EA%B1%B0%EC%9E%A5" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">結帳、步行到站，備妥 QR Code，依預約規定等候。</div></div></li>
+      <li class="star"><span class="time">16:00<br>16:30</span><span class="dot"></span><div class="act"><span class="hl">🚃 天空膠囊：青沙浦 → 尾浦</span><div class="sub-list">建議預約此登車時段，4 人用 × 1 台（尚未確認購票）。不是固定 16:00 發車；單程約 30 分鐘，週日可能等候。</div></div></li>
+      <li class="star"><span class="time">下車後<br>17:40</span><span class="dot"></span><div class="act"><span class="hl">🌅 尾浦、海雲台日落晚霞</span><a class="map" href="https://map.naver.com/p/search/%ED%95%B4%EC%9A%B4%EB%8C%80%ED%95%B4%EC%88%98%EC%9A%95%EC%9E%A5" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">11/8 日落約 17:23。車上看金色海景，下車繼續散步看晚霞；天氣、山勢與建築影響實際視野。</div></div></li>
+      <li><span class="time">17:40<br>19:00</span><span class="dot"></span><div class="act"><span class="hl">海雲台晚餐</span><div class="sub-list">在尾浦或海雲台商圈用餐，不再跨區。</div></div></li>
+      <li><span class="time">19:00<br>20:00</span><span class="dot"></span><div class="act"><span class="hl">海雲台傳統市場、海邊夜景</span><a class="map" href="https://map.naver.com/p/search/%ED%95%B4%EC%9A%B4%EB%8C%80%EC%A0%84%ED%86%B5%EC%8B%9C%EC%9E%A5" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">依體力彈性安排，也可直接回住宿。</div></div></li>
+      <li><span class="time">20:00</span><span class="dot"></span><div class="act"><span class="hl">回 Sienna 休息、整理行李</span><div class="sub-list">隔天 11:00 前退房，移動至南浦。</div></div></li>
     </ul>
     <div class="spots-title">當日亮點<span class="en">Highlights</span></div>
     <div class="spots">
       <div class="spot">
         <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Haeundae_Beach_20200522_005.jpg?width=800" alt="海雲台海水浴場" loading="lazy" onerror="this.remove()"><span class="fb">🏖️</span></div>
-        <div class="tx"><b>海雲台海水浴場</b><p>韓國最具代表性的海灘，約 1.5 公里的白沙灘背後就是釜山的摩天大樓天際線，是釜山的城市名片。</p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%ED%95%B4%EC%9A%B4%EB%8C%80%ED%95%B4%EC%88%98%EC%9A%95%EC%9E%A5">📍 Google 地圖</a></div>
+        <div class="tx"><b>海雲台海水浴場</b><p>韓國最具代表性的海灘，約 1.5 公里的白沙灘背後就是釜山的摩天大樓天際線，是釜山的城市名片。</p><a target="_blank" rel="noopener" href="https://map.naver.com/p/search/%ED%95%B4%EC%9A%B4%EB%8C%80%ED%95%B4%EC%88%98%EC%9A%95%EC%9E%A5">📍 Naver Map</a></div>
       </div>
     </div>
 
-    <div class="tip"><b>Sky Capsule 提醒</b>：膠囊列車超熱門，<b>強烈建議提前線上預約</b>指定時段；海雲台→青沙浦方向坐右側看海視野最好。</div>
-  </div>
+<div class="note"><b>待預約</b>：<a href="https://busan.skylineluge.kr/en/book-now/" target="_blank" rel="noopener">斜坡滑車 4 次券 × 4 人</a>；<a href="https://www.bluelinepark.com/eng/booking.do" target="_blank" rel="noopener">天空膠囊青沙浦出發・4 人用 1 台・16:00–16:30</a>。購票後再更新下方清單。</div><div class="tip"><b>交通與排隊</b>：車程為含緩衝的估算，尚未以 Naver Map 逐段核實；10:00 到場是避開後續人潮的建議，不保證免排隊。若延誤，縮短散步與咖啡時間，保留膠囊報到時間。</div></div>
 </section>
 
-<section class="day" id="d3" role="tabpanel">
-  <div class="day-head">
-    <div class="d-en">DAY 3 · MONDAY</div>
-    <h3>甘川文化村・南浦洞</h3>
-    <div class="d-date">11月9日（一・월요일）</div>
-  </div>
-  <div class="day-body">
-    <ul class="tl">
-      <li><span class="time">早餐</span><span class="dot"></span><span class="act">ISAAC Toast 🥪</span></li>
-      <li class="star"><span class="time">上午</span><span class="dot"></span><span class="act"><span class="hl">🎨 甘川文化村（拍照約 2 小時）</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%94%98%E5%B7%9D%E6%96%87%E5%8C%96%E6%9D%91">📍地圖</a></span></li>
-      <li><span class="time">午餐</span><span class="dot"></span><span class="act">札嘎其市場海鮮 🐟<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%9C%AD%E5%98%8E%E5%85%B6%E5%B8%82%E5%A0%B4">📍地圖</a></span></li>
-      <li class="star"><span class="time">下午</span><span class="dot"></span><span class="act"><span class="hl">🚠 松島海上纜車・松島天空步道</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Songdo+Marine+Cable+Car">📍地圖</a></span></li>
-      <li><span class="time">傍晚</span><span class="dot"></span><span class="act">BIFF 廣場（吃 <b>糖餅</b> 🥞）<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=BIFF%E5%BB%A3%E5%A0%B4">📍地圖</a></span></li>
-      <li><span class="time">傍晚</span><span class="dot"></span><span class="act">國際市場</span></li>
-      <li class="star"><span class="time">晚上</span><span class="dot"></span><span class="act"><span class="hl">🥫 富平罐頭夜市</span>（魚板 🍢）<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%AF%8C%E5%B9%B3%E7%BD%90%E9%A0%AD%E5%A4%9C%E5%B8%82">📍地圖</a></span></li>
-      <li><span class="time">夜間</span><span class="dot"></span><span class="act">返回西面</span></li>
+<section class="day" id="d3" role="tabpanel" aria-labelledby="tab-d3" tabindex="0">
+  <div class="day-head"><div class="d-en">DAY 3 · MONDAY</div><h3>換住宿・甘川文化村・松島・南浦</h3><div class="d-date">11月9日（一）｜白天 4 人｜當晚南浦住宿 3 人</div></div>
+  <div class="day-body"><ul class="tl">
+      <li><span class="time">早餐</span><span class="dot"></span><div class="act"><span class="hl">海雲台附近早餐、整理行李</span><div class="sub-list">先確認第 4 位旅伴的離隊時間。</div></div></li>
+      <li><span class="time">09:00<br>11:00</span><span class="dot"></span><div class="act"><span class="hl">退房、海雲台 → 南浦</span><div class="sub-list">Sienna 最晚 11:00 退房。地鐵 2 號線至西面轉 1 號線往多大浦海水浴場方向；依飯店位置選下車站。有多件行李時預約足夠容量的車輛。</div></div></li>
+      <li><span class="time">抵達後</span><span class="dot"></span><div class="act"><span class="hl">Paramion Hotel Nampo 寄物</span><a class="map" href="https://map.naver.com/p/search/Paramion%20Hotel%20Nampo%20%EB%B6%80%EC%82%B0" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">提前寄物與入住時間待飯店確認；不帶大件行李遊覽山坡景點。</div></div></li>
+      <li class="star"><span class="time">上午<br>午間</span><span class="dot"></span><div class="act"><span class="hl">🎨 甘川文化村</span><a class="map" href="https://map.naver.com/p/search/%EA%B0%90%EC%B2%9C%EB%AC%B8%ED%99%94%EB%A7%88%EC%9D%84" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">寄物後前往，預留約 2 小時。含移動的實際時間依抵達南浦時間調整。</div></div></li>
+      <li><span class="time">午餐</span><span class="dot"></span><div class="act"><span class="hl">甘川附近用餐</span><div class="sub-list">避免為午餐先回南浦再折返松島。</div></div></li>
+      <li class="star"><span class="time">下午</span><span class="dot"></span><div class="act"><span class="hl">🚠 松島海上纜車、海邊散步</span><a class="map" href="https://map.naver.com/p/search/%EC%86%A1%EB%8F%84%ED%95%B4%EC%83%81%EC%BC%80%EC%9D%B4%EB%B8%94%EC%B9%B4" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">從甘川搭計程車前往松島，依體力選擇散步範圍。</div></div></li>
+      <li><span class="time">傍晚</span><span class="dot"></span><div class="act"><span class="hl">返回南浦、飯店入住</span><div class="sub-list">南浦已訂 3 人房。第 4 位離隊交通另依班次安排。</div></div></li>
+      <li class="star"><span class="time">晚餐<br>晚上</span><span class="dot"></span><div class="act"><span class="hl">BIFF 廣場、國際市場、富平罐頭夜市</span><a class="map" href="https://map.naver.com/p/search/BIFF%EA%B4%91%EC%9E%A5" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">糖餅、魚板與小吃；市場營業以現場為準，不必全部走完。</div></div></li>
+      <li><span class="time">夜間</span><span class="dot"></span><div class="act"><span class="hl">回 Paramion Hotel Nampo</span><div class="sub-list">住南浦第 1 晚。</div></div></li>
     </ul>
     <div class="spots-title">當日亮點<span class="en">Highlights</span></div>
     <div class="spots">
       <div class="spot">
         <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Colorful_houses_in_Gamcheon_Culture_Village_at_sunset_in_Busan_South_Korea.jpg?width=800" alt="甘川文化村" loading="lazy" onerror="this.remove()"><span class="fb">🎨</span></div>
-        <div class="tx"><b>甘川文化村</b><p>依山而建的彩色階梯村落，有「韓國聖托里尼」「釜山馬丘比丘」之稱，巷弄壁畫與小王子雕像是拍照重點。</p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%94%98%E5%B7%9D%E6%96%87%E5%8C%96%E6%9D%91">📍 Google 地圖</a></div>
+        <div class="tx"><b>甘川文化村</b><p>依山而建的彩色階梯村落，有「韓國聖托里尼」「釜山馬丘比丘」之稱，巷弄壁畫與小王子雕像是拍照重點。</p><a target="_blank" rel="noopener" href="https://map.naver.com/p/search/%E7%94%98%E5%B7%9D%E6%96%87%E5%8C%96%E6%9D%91">📍 Naver Map</a></div>
       </div>
       <div class="spot">
         <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2016-03-15_Jagalchi_Market,_Busan,_South_Korea.jpg?width=800" alt="札嘎其市場" loading="lazy" onerror="this.remove()"><span class="fb">🐟</span></div>
-        <div class="tx"><b>札嘎其市場</b><p>韓國最大的海鮮市場，一樓挑選現撈海鮮、二樓直接代客料理，最能感受釜山港都活力的地方。</p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%EC%9E%90%EA%B0%88%EC%B9%98%EC%8B%9C%EC%9E%A5">📍 Google 地圖</a></div>
+        <div class="tx"><b>札嘎其市場</b><p>韓國最大的海鮮市場，一樓挑選現撈海鮮、二樓直接代客料理，最能感受釜山港都活力的地方。</p><a target="_blank" rel="noopener" href="https://map.naver.com/p/search/%EC%9E%90%EA%B0%88%EC%B9%98%EC%8B%9C%EC%9E%A5">📍 Naver Map</a></div>
       </div>
       <div class="spot">
         <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Songdo_Cloud_Trails_Skywalk_Songdo_Beach_Busan_(30809005967).jpg?width=800" alt="松島天空步道" loading="lazy" onerror="this.remove()"><span class="fb">🚠</span></div>
-        <div class="tx"><b>松島海上纜車・天空步道</b><p>纜車橫越海面 1.62 公里，水晶車廂還有透明地板；一旁的天空步道向海面延伸，可以近距離感受海景。</p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Songdo+Marine+Cable+Car">📍 Google 地圖</a></div>
+        <div class="tx"><b>松島海上纜車・天空步道</b><p>纜車橫越海面 1.62 公里，水晶車廂還有透明地板；一旁的天空步道向海面延伸，可以近距離感受海景。</p><a target="_blank" rel="noopener" href="https://map.naver.com/p/search/Songdo%20Marine%20Cable%20Car">📍 Naver Map</a></div>
       </div>
     </div>
 
-    <div class="tip"><b>甘川文化村小提醒</b>：村內是山坡巷弄，樓梯多、路面起伏，穿好走的鞋；小王子雕像等熱門拍照點通常要排隊，早點抵達人比較少。</div>
-  </div>
+<div class="tip"><b>換飯店日</b>：先解決行李寄放，再去甘川與松島。第 4 位旅伴的離隊時間未定，白天不安排需全員準時的餐廳訂位。</div></div>
 </section>
 
-<section class="day" id="d4" role="tabpanel">
-  <div class="day-head">
-    <div class="d-en">DAY 4 · TUESDAY</div>
-    <h3>梵魚寺賞楓・Centum City 購物</h3>
-    <div class="d-date">11月10日（二・화요일）</div>
-  </div>
-  <div class="day-body">
-    <ul class="tl">
-      <li><span class="time">早餐</span><span class="dot"></span><span class="act">飯店早餐</span></li>
-      <li class="star"><span class="time">上午</span><span class="dot"></span><span class="act"><span class="hl">🍁 梵魚寺賞楓</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%A2%B5%E9%AD%9A%E5%AF%BA">📍地圖</a></span></li>
-      <li><span class="time">中午</span><span class="dot"></span><span class="act">金井山纜車（時間允許再排）<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Geumgang+Park+Ropeway">📍地圖</a></span></li>
-      <li><span class="time">下午</span><span class="dot"></span><span class="act">前往 Centum City<a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Centum+City+Busan">📍地圖</a></span></li>
-      <li class="star"><span class="time">下午</span><span class="dot"></span><span class="act"><span class="hl">♨️ Spa Land 泡湯休息</span></span></li>
-      <li><span class="time">傍晚</span><span class="dot"></span><span class="act">新世界百貨、Olive Young、DAISO、E-mart 🛍️</span></li>
-      <li class="star"><span class="time">晚餐</span><span class="dot"></span><span class="act"><span class="hl">🥩 韓牛燒肉</span></span></li>
-      <li><span class="time">晚上</span><span class="dot"></span><span class="act">回飯店整理行李</span></li>
+<section class="day" id="d4" role="tabpanel" aria-labelledby="tab-d4" tabindex="0">
+  <div class="day-head"><div class="d-en">DAY 4 · TUESDAY</div><h3>梵魚寺賞楓・西面・田浦購物咖啡</h3><div class="d-date">11月10日（二）｜3 人｜住南浦第 2 晚</div></div>
+  <div class="day-body"><ul class="tl">
+      <li><span class="time">早餐</span><span class="dot"></span><div class="act"><span class="hl">南浦附近早餐</span><div class="sub-list">住宿不含早餐。</div></div></li>
+      <li class="star"><span class="time">上午</span><span class="dot"></span><div class="act"><span class="hl">🍁 梵魚寺賞秋景</span><a class="map" href="https://map.naver.com/p/search/%EB%B2%94%EC%96%B4%EC%82%AC" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">地鐵 1 號線往老圃方向至梵魚寺站，再轉公車或計程車上山。葉色依當年天氣。</div></div></li>
+      <li><span class="time">午餐</span><span class="dot"></span><div class="act"><span class="hl">下山用餐、前往西面</span><div class="sub-list">沿地鐵 1 號線回西面，減少跨區繞路。</div></div></li>
+      <li><span class="time">下午</span><span class="dot"></span><div class="act"><span class="hl">🛍️ 西面商圈、地下街購物</span><a class="map" href="https://map.naver.com/p/search/%EC%84%9C%EB%A9%B4%EC%97%AD" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">Olive Young、DAISO 等依購物清單選店。</div></div></li>
+      <li class="star"><span class="time">午後</span><span class="dot"></span><div class="act"><span class="hl">☕ 田浦咖啡街</span><a class="map" href="https://map.naver.com/p/search/%EC%A0%84%ED%8F%AC%EC%B9%B4%ED%8E%98%EA%B1%B0%EB%A6%AC" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">挑一間咖啡廳休息，不把購物與咖啡排滿。</div></div></li>
+      <li><span class="time">晚餐</span><span class="dot"></span><div class="act"><span class="hl">韓牛燒肉</span><div class="sub-list">餐廳待選，尚未確認訂位。</div></div></li>
+      <li><span class="time">晚上</span><span class="dot"></span><div class="act"><span class="hl">回南浦、整理行李</span><div class="sub-list">西面搭地鐵 1 號線返回南浦；住 Paramion 第 2 晚。</div></div></li>
     </ul>
     <div class="spots-title">當日亮點<span class="en">Highlights</span></div>
     <div class="spots">
       <div class="spot">
         <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Beomeosa_Temples.JPG?width=800" alt="梵魚寺" loading="lazy" onerror="this.remove()"><span class="fb">🍁</span></div>
-        <div class="tx"><b>梵魚寺</b><p>建於西元 678 年的千年古剎，坐落金井山麓，是釜山最重要的寺院；11 月中楓紅環繞殿宇，是市區最經典的賞楓名所。</p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%EB%B2%94%EC%96%B4%EC%82%AC">📍 Google 地圖</a></div>
+        <div class="tx"><b>梵魚寺</b><p>建於西元 678 年的千年古剎，坐落金井山麓，是釜山最重要的寺院；秋季可欣賞山林與寺院景致；實際楓紅依當年天氣而異。</p><a target="_blank" rel="noopener" href="https://map.naver.com/p/search/%EB%B2%94%EC%96%B4%EC%82%AC">📍 Naver Map</a></div>
       </div>
     </div>
 
-    <div class="tip"><b>當日提醒</b>：11 月上旬釜山楓葉漸紅，梵魚寺是市區最經典的賞楓點，平日前往人潮較少，仍建議一早出發、光線也最漂亮；Spa Land 有入場時數限制，泡湯加休息抓 2–3 小時剛好。</div>
-  </div>
+<div class="tip"><b>一路順回市區</b>：南浦 → 梵魚寺 → 西面／田浦 → 南浦。Spa Land 與新世界百貨已移至 Day 1，不重複安排。</div></div>
 </section>
 
-<section class="day" id="d5" role="tabpanel">
-  <div class="day-head">
-    <div class="d-en">DAY 5 · WEDNESDAY</div>
-    <h3>白淺灘文化村・返台</h3>
-    <div class="d-date">11月11日（三・수요일）</div>
-  </div>
-  <div class="day-body">
-    <ul class="tl">
-      <li><span class="time">09:30</span><span class="dot"></span><span class="act">退房、飯店寄放行李</span></li>
-      <li class="star"><span class="time">10:30</span><span class="dot"></span><span class="act"><span class="hl">🌊 白淺灘文化村（影島）</span><a class="map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Huinnyeoul+Culture+Village">📍地圖</a><div class="sub-list">沿海步道慢慢走，約 1.5 小時</div></span></li>
-      <li><span class="time">11:45</span><span class="dot"></span><span class="act">海景咖啡 ☕</span></li>
-      <li><span class="time">12:45</span><span class="dot"></span><span class="act">午餐：海鮮麵 🍜</span></li>
-      <li><span class="time">14:00</span><span class="dot"></span><span class="act">彈性時間：回西面補買 Olive Young／DAISO，或到光復路・龍頭山公園散步</span></li>
-      <li><span class="time">17:00</span><span class="dot"></span><span class="act">西面吃最後一餐（想再吃一次豬肉湯飯就趁現在）</span></li>
-      <li><span class="time">18:15</span><span class="dot"></span><span class="act">回飯店拿行李，搭地鐵轉輕軌前往金海機場<div class="sub-list">下班時段地鐵人多、拖行李較慢，不要晚於這個時間出發</div></span></li>
-      <li><span class="time">19:30</span><span class="dot"></span><span class="act">抵達金海機場：報到、退稅、逛免稅店（最晚 19:50 到）</span></li>
-      <li class="star"><span class="time">21:50</span><span class="dot"></span><span class="act"><span class="hl">LJ577 起飛返台 ✈️</span></span></li>
-      <li><span class="time">23:40</span><span class="dot"></span><span class="act">抵達桃園（台灣時間），出關後回家</span></li>
+<section class="day" id="d5" role="tabpanel" aria-labelledby="tab-d5" tabindex="0">
+  <div class="day-head"><div class="d-en">DAY 5 · WEDNESDAY</div><h3>影島白淺灘・Age 海景咖啡・返台</h3><div class="d-date">11月11日（三）｜3 人｜21:50 金海起飛</div></div>
+  <div class="day-body"><ul class="tl">
+      <li><span class="time">09:30</span><span class="dot"></span><div class="act"><span class="hl">退房、南浦寄放行李</span><div class="sub-list">依飯店寄物服務辦理，記下領取時間。</div></div></li>
+      <li class="star"><span class="time">10:30</span><span class="dot"></span><div class="act"><span class="hl">🌊 白淺灘文化村</span><a class="map" href="https://map.naver.com/p/search/%ED%9D%B0%EC%97%AC%EC%9A%B8%EB%AC%B8%ED%99%94%EB%A7%88%EC%9D%84" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">從南浦搭公車或計程車前往影島，沿海散步約 1.5 小時。</div></div></li>
+      <li><span class="time">12:00</span><span class="dot"></span><div class="act"><span class="hl">影島午餐</span><div class="sub-list">午餐後再前往 Age，避免往返南浦。</div></div></li>
+      <li class="star"><span class="time">13:30<br>15:00</span><span class="dot"></span><div class="act"><span class="hl">☕ Age 海景咖啡廳</span><a class="map" href="https://map.naver.com/p/search/%EB%B6%80%EC%82%B0%20%EC%98%81%EB%8F%84%EA%B5%AC%20%ED%95%B4%EC%96%91%ED%9E%90%EB%A7%81%EB%A1%9C%2055" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">依你提供的貼文安排；地址：影島區海洋 Healing 路 55。出發前再確認店名、營業與入口，不把溜索列為已確認活動。</div></div></li>
+      <li><span class="time">15:00<br>16:30</span><span class="dot"></span><div class="act"><span class="hl">返回南浦、補買伴手禮</span><a class="map" href="https://map.naver.com/p/search/%EA%B4%91%EB%B3%B5%EB%A1%9C" target="_blank" rel="noopener">📍 Naver Map</a><div class="sub-list">光復路附近彈性購物，先吃簡單餐點或在機場用餐。</div></div></li>
+      <li><span class="time">16:30<br>17:00</span><span class="dot"></span><div class="act"><span class="hl">領行李、準備前往機場</span><div class="sub-list">確認交通卡餘額，整理護照與登機資料。</div></div></li>
+      <li><span class="time">17:00</span><span class="dot"></span><div class="act"><span class="hl">南浦 → 金海機場</span><div class="sub-list">地鐵 1 號線 → 西面轉 2 號線 → 沙上轉金海輕軌 → 機場；含轉乘步行抓約 90 分鐘。</div></div></li>
+      <li><span class="time">18:30左右</span><span class="dot"></span><div class="act"><span class="hl">抵達金海機場</span><div class="sub-list">預留報到、退稅、安檢與晚餐時間；櫃檯開放依航空公司公告。</div></div></li>
+      <li class="star"><span class="time">21:50</span><span class="dot"></span><div class="act"><span class="hl">✈️ LJ577 起飛返台</span><div class="sub-list">韓國時間。</div></div></li>
+      <li><span class="time">23:40</span><span class="dot"></span><div class="act"><span class="hl">抵達桃園</span><div class="sub-list">台灣時間；出關可能已過午夜，事先安排返家交通。</div></div></li>
     </ul>
     <div class="spots-title">當日亮點<span class="en">Highlights</span></div>
     <div class="spots">
       <div class="spot">
         <div class="ph"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Huinnyeoul_Culture_Village.jpg?width=800" alt="白淺灘文化村" loading="lazy" onerror="this.remove()"><span class="fb">🌊</span></div>
-        <div class="tx"><b>白淺灘文化村</b><p>影島海崖上的白色小村，同樣有「釜山聖托里尼」的暱稱；沿海步道景色開闊，也是電影《正義辯護人》的取景地。</p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Huinnyeoul+Culture+Village">📍 Google 地圖</a></div>
+        <div class="tx"><b>白淺灘文化村</b><p>影島海崖上的白色小村，同樣有「釜山聖托里尼」的暱稱；沿海步道景色開闊，也是電影《正義辯護人》的取景地。</p><a target="_blank" rel="noopener" href="https://map.naver.com/p/search/Huinnyeoul%20Culture%20Village">📍 Naver Map</a></div>
       </div>
     </div>
 
-    <div class="note"><b>回程時間回推</b>：21:50 起飛 → 最晚 19:50 到機場 → 西面 18:15 前出發（交通約 40–50 分鐘，含拿行李與尖峰緩衝）。行李多的話，也可以直接在飯店叫計程車到機場。</div>
-  </div>
+<div class="note"><b>回程安排</b>：南浦 17:00 出發 → 約 18:30 到機場 → 21:50 起飛。行程若延誤，先刪除購物，保留機場緩衝。</div></div>
 </section>
 
+</div><!-- /day-panels -->
 <!-- ===== 必吃清單 ===== -->
 <section id="foods">
   <div class="sec-head"><span class="en">Must Eat</span><h2>這次一定要吃</h2></div>
   <div class="foods">
-    <div class="food"><span class="emo">🍜</span><div><b>豬肉湯飯</b><span class="stars">★★★★★</span><p>第一餐必吃｜西面</p></div></div>
+    <div class="food"><span class="emo">🍜</span><div><b>豬肉湯飯</b><span class="stars">★★★★★</span><p>旅途中安排｜海雲台／南浦</p></div></div>
     <div class="food"><span class="emo">🐚</span><div><b>烤貝</b><span class="stars">★★★★★</span><p>Day 2｜青沙浦</p></div></div>
     <div class="food"><span class="emo">🥩</span><div><b>韓牛燒肉</b><span class="stars">★★★★★</span><p>Day 4 晚餐</p></div></div>
     <div class="food"><span class="emo">🥞</span><div><b>糖餅</b><span class="stars">★★★★★</span><p>Day 3｜BIFF 廣場</p></div></div>
     <div class="food"><span class="emo">🍢</span><div><b>魚板</b><span class="stars">★★★★★</span><p>Day 3｜南浦洞</p></div></div>
     <div class="food"><span class="emo">🦐</span><div><b>海鮮鍋</b><span class="stars">★★★★★</span><p>Day 2｜海雲台</p></div></div>
-    <div class="food"><span class="emo">🍗</span><div><b>韓式炸雞</b><span class="stars">★★★★☆</span><p>Day 1 宵夜｜西面</p></div></div>
+    <div class="food"><span class="emo">🍗</span><div><b>韓式炸雞</b><span class="stars">★★★★☆</span><p>Day 1 宵夜｜海雲台</p></div></div>
   </div>
 </section>
 
@@ -555,9 +520,8 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
 <section id="cafes">
   <div class="sec-head"><span class="en">Cafés</span><h2>必去咖啡廳</h2></div>
   <div class="cafes">
-    <span class="cafe">Momo's Coffee<small>田浦</small></span>
-    <span class="cafe">Urban Plant<small>田浦</small></span>
-    <span class="cafe">AVIVERE Company<small>田浦</small></span>
+    <span class="cafe">田浦咖啡街<small>Day 4・店家待選</small></span>
+    <span class="cafe">Age 海景咖啡廳<small>Day 5・影島</small></span>
     <span class="cafe">青沙浦海景咖啡<small>Day 2</small></span>
     <span class="cafe">Huinnyeoul 咖啡<small>白淺灘</small></span>
     <span class="cafe">海雲台海景咖啡<small>Day 2</small></span>
@@ -583,7 +547,7 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
     <span class="arrow" aria-hidden="true"></span>
   </summary>
   <div class="fold-body">
-    <p style="font-size:.85rem;color:var(--muted);margin:10px 0 12px">🙋 這區給負責預約的成員使用，其他人看標題旁的進度就好。勾選會<b>雲端同步給所有人</b>，打開頁面或按「重新同步」即可看到最新進度。</p>
+    <p style="font-size:.85rem;color:var(--muted);margin:10px 0 12px">🙋 這區給負責預約的成員使用，其他人看標題旁的進度就好。已確認的煙火票與住宿固定標記完成；其餘勾選會<b>雲端同步給所有人</b>，打開頁面或按「重新同步」即可看到最新進度。</p>
     <div class="sync-row"><span id="bk-sync">☁️ 連線中…</span><button id="bk-refresh" type="button">🔄 重新同步</button></div>
     <div class="pack-progress"><div class="pack-bar"><i id="bk-fill"></i></div><b id="bk-count">0 / 0</b></div>
     <div class="pack-grid" id="bk-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))"></div>
@@ -691,17 +655,19 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
   };
   var TRIP = 'busan', LKEY = 'busan-booking-2026';
   var items = [
-    {t:'🎆 11/7 釜山煙火節座席票（官網開賣後儘速預訂）', d:'最優先，開賣即搶'},
-    {t:'西面飯店預訂＋確認凌晨可否寄放行李（煙火節當週住房緊張，越早訂越好）', d:'盡早'},
-    {t:'Day 2：Sky Capsule 膠囊列車時段預約', d:'出發前 1 個月'},
+    {t:'🎆 11/7 釜山煙火節付費席', d:'已購買・入口與兌票依訂單', confirmed:true},
+    {t:'住宿：Sienna 11/7–11/9＋Paramion Nampo 11/9–11/11', d:'已提供訂房資料・另確認 Sienna 4 人房與寄物', confirmed:true},
+    {t:'Day 2：Sky Capsule 青沙浦 → 尾浦，16:00–16:30，4 人用 × 1 台', d:'出發前 1 個月'},
     {t:'Day 4：韓牛燒肉餐廳訂位', d:'出發前 2–4 週'},
     {t:'Day 3：松島海上纜車門票（線上有優惠）', d:'出發前 1–2 週'},
-    {t:'Day 4：Spa Land 確認營業時段（現場購票）', d:'出發前 1 週'},
+    {t:'Day 1：Spa Land 4 人，確認營業與大件行李寄放', d:'出發前 1 週'},
     {t:'eSIM／網卡購買並完成設定', d:'出發前 1 週'},
     {t:'下載 WOWPASS App 並註冊', d:'出發前 1 週'},
     {t:'下載 Naver Map／Kakao Map 並收藏景點', d:'出發前 1 週'},
     {t:'11/6 深夜前往桃園機場的交通（機捷末班車／接送／計程車）', d:'出發前 1 週'},
-    {t:'11/11 23:40 落地桃園後的回家交通', d:'出發前 1 週'}
+    {t:'11/11 23:40 落地桃園後的回家交通', d:'出發前 1 週'},
+    {t:'Day 2：Skyline Luge 4 次券 × 4 人', d:'尚未確認購票'},
+    {t:'11/9 第 4 位旅伴離隊時間與交通', d:'待確認'}
     // ⚠️ 雲端同步以「順序」當 ID：新項目只能加在最後，不要插隊或刪除中間項目
   ];
   var grid = document.getElementById('bk-grid');
@@ -711,12 +677,13 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
   function loadLocal(){ try{ return JSON.parse(localStorage.getItem(LKEY)) || {}; }catch(e){ return mem; } }
   function saveLocal(st){ try{ localStorage.setItem(LKEY, JSON.stringify(st)); }catch(e){ mem = st; } }
   var state = loadLocal();
+  items.forEach(function(item,i){ if(item.confirmed) state[i]=true; });
   var cbs = [], labels = [];
   items.forEach(function(item, i){
     var label = document.createElement('label');
     label.className = 'pack-item' + (state[i] ? ' done' : '');
     var cb = document.createElement('input');
-    cb.type = 'checkbox'; cb.checked = !!state[i];
+    cb.type = 'checkbox'; cb.checked = !!state[i]; cb.disabled = !!item.confirmed;
     var sp = document.createElement('span');
     sp.textContent = item.t;
     var dl = document.createElement('em');
@@ -752,7 +719,7 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
     fetch(API + '?trip=eq.' + TRIP + '&select=item_id,done', {headers: HEADERS})
       .then(function(r){ if(!r.ok) throw 0; return r.json(); })
       .then(function(rows){
-        rows.forEach(function(row){ state[row.item_id] = row.done; });
+        rows.forEach(function(row){ if(items[row.item_id] && !items[row.item_id].confirmed) state[row.item_id] = row.done; });
         saveLocal(state); applyState();
         setSync('☁️ 已同步（' + new Date().toLocaleTimeString('zh-TW', {hour:'2-digit',minute:'2-digit'}) + '）');
       })
@@ -775,7 +742,7 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
 
 // 必逛清單
 (function(){
-  var items = ['Olive Young','DAISO','ARTBOX','新世界百貨','樂天百貨','西面地下街','國際市場','E-mart'];
+  var items = ['Olive Young','DAISO','ARTBOX','新世界百貨','樂天百貨','西面地下街','國際市場','E-mart','National Geographic 服飾'];
   var grid = document.getElementById('pack-grid');
   var KEY = 'busan-shopping-2026';
   var mem = {};
@@ -807,38 +774,80 @@ footer .en{font-family:var(--en);letter-spacing:.25em;font-weight:600;color:var(
   update();
 })();
 
-// Day 分頁切換（支援網址 #d3 分享、旅程期間自動開啟當天、鍵盤左右鍵）
+// Day 分頁：日期按鈕、鍵盤、內容水平滑動及網址同步共用一個狀態。
 (function(){
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
   var sticky = document.querySelector('.tabs-sticky');
+  var panels = document.getElementById('day-panels');
+  var prev = document.getElementById('day-prev'), next = document.getElementById('day-next');
+  var active = 0;
+  tabs.forEach(function(t){ t.id='tab-'+t.dataset.day; });
   function show(id, scroll){
-    var ok = false;
+    var index = tabs.findIndex(function(t){ return t.dataset.day === id; });
+    if(index < 0) return false;
+    active = index;
     tabs.forEach(function(x){
-      var on = x.dataset.day === id; if(on) ok = true;
+      var on = x.dataset.day === id;
       x.classList.toggle('active', on);
       x.setAttribute('aria-selected', on ? 'true' : 'false');
       x.tabIndex = on ? 0 : -1;
     });
-    if(!ok) return false;
     document.querySelectorAll('.day').forEach(function(p){ p.classList.toggle('show', p.id === id); });
+    prev.disabled = active === 0;
+    next.disabled = active === tabs.length-1;
+    document.getElementById('day-position').textContent = '第 '+(active+1)+' / '+tabs.length+' 天';
+    var nav=document.getElementById('tabs'), rect=tabs[active].getBoundingClientRect(), navRect=nav.getBoundingClientRect();
+    if(rect.left<navRect.left || rect.right>navRect.right) nav.scrollLeft += rect.left-navRect.left-(nav.clientWidth-rect.width)/2;
     if(scroll){
-      var top = sticky.getBoundingClientRect().top + window.scrollY;
-      if(window.scrollY > top) window.scrollTo({top: top - 4, behavior: 'smooth'});
+      // The original sticky position changes after scrolling; target the new panel instead.
+      var top = document.getElementById(id).getBoundingClientRect().top + window.scrollY - sticky.offsetHeight - 12;
+      window.scrollTo({top: Math.max(0,top), behavior: 'auto'});
     }
     return true;
   }
+  function choose(index, focus){
+    if(index<0 || index>=tabs.length) return;
+    show(tabs[index].dataset.day,true);
+    if(history.replaceState) history.replaceState(null,'','#'+tabs[index].dataset.day);
+    if(focus) tabs[index].focus({preventScroll:true});
+  }
+  prev.addEventListener('click',function(){choose(active-1,false);});
+  next.addEventListener('click',function(){choose(active+1,false);});
   tabs.forEach(function(t, i){
     t.addEventListener('click', function(){
-      show(t.dataset.day, true);
-      if(history.replaceState) history.replaceState(null, '', '#' + t.dataset.day);
+      choose(i,false);
     });
     t.addEventListener('keydown', function(e){
-      var k = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
-      if(!k) return;
-      var n = tabs[(i + k + tabs.length) % tabs.length];
-      n.focus(); n.click(); e.preventDefault();
+      var index=e.key==='ArrowRight' ? (i+1)%tabs.length : e.key==='ArrowLeft' ? (i-1+tabs.length)%tabs.length : e.key==='Home' ? 0 : e.key==='End' ? tabs.length-1 : -1;
+      if(index<0) return;
+      e.preventDefault(); choose(index,true);
     });
   });
+  var gesture=null;
+  panels.addEventListener('touchstart',function(e){
+    gesture=null;
+    if(e.touches.length!==1 || e.target.closest('a,button,input,select,textarea,label,summary')) return;
+    if(window.getSelection && !window.getSelection().isCollapsed) return;
+    var t=e.touches[0];
+    // Leave screen-edge swipes to iOS browser navigation.
+    if(t.clientX<28 || t.clientX>window.innerWidth-28) return;
+    gesture={x:t.clientX,y:t.clientY,time:Date.now(),day:active};
+  },{passive:true});
+  panels.addEventListener('touchmove',function(e){
+    if(!gesture) return;
+    if(e.touches.length!==1){gesture=null;return;}
+    var t=e.touches[0],dx=Math.abs(t.clientX-gesture.x),dy=Math.abs(t.clientY-gesture.y);
+    if(dy>18 && dy>dx) gesture=null;
+  },{passive:true});
+  panels.addEventListener('touchcancel',function(){gesture=null;},{passive:true});
+  panels.addEventListener('touchend',function(e){
+    var g=gesture;gesture=null;
+    if(!g || e.touches.length || !e.changedTouches.length || active!==g.day) return;
+    var t=e.changedTouches[0],dx=t.clientX-g.x,dy=t.clientY-g.y;
+    if(Date.now()-g.time>1000 || Math.abs(dx)<60 || Math.abs(dx)<Math.abs(dy)*1.5) return;
+    choose(active+(dx<0?1:-1),false);
+  },{passive:true});
+  window.addEventListener('hashchange',function(){if(/^d[1-5]$/.test(location.hash.slice(1)))show(location.hash.slice(1),true);});
   // 初始：網址指定 > 旅程當天（韓國時間）> Day 1
   var hash = location.hash.slice(1);
   if(!/^d[1-5]$/.test(hash) || !show(hash, false)){
